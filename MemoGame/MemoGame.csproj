@@ -95,6 +95,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Models\Highscore.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -109,7 +111,24 @@
     <None Include="MemoGame_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\avatar_ac3009f7fffd_128.png" />
+    <Content Include="Assets\MeMe Edition\9-2-me-gusta-meme-png.png" />
+    <Content Include="Assets\MeMe Edition\avatar_ac3009f7fffd_128.png" />
+    <Content Include="Assets\MeMe Edition\fsjal_meme___vegeta_by_oceanhell-d46ami0.png" />
+    <Content Include="Assets\MeMe Edition\giorgiok.png" />
+    <Content Include="Assets\MeMe Edition\Happy-Derpina-Meme-PNG.png" />
+    <Content Include="Assets\MeMe Edition\Impossibru.png" />
+    <Content Include="Assets\MeMe Edition\Classy.png" />
+    <Content Include="Assets\MeMe Edition\Genius.png" />
+    <Content Include="Assets\MeMe Edition\Duckface.png" />
+    <Content Include="Assets\MeMe Edition\Meme-Transparent-PNG.png" />
+    <Content Include="Assets\MeMe Edition\meme_forever_alone_png_by_agustifran-d51rx9a.png" />
+    <Content Include="Assets\MeMe Edition\Mother-Of-God-Meme-PNG.png" />
+    <Content Include="Assets\MeMe Edition\pc_master_race_by_kingvego-d9r6gtn.png" />
+    <Content Include="Assets\MeMe Edition\pedo_bear_mask_by_bltsalade.png" />
+    <Content Include="Assets\MeMe Edition\screen-shot-2017-02-10-at-1-56-08-pm.png" />
+    <Content Include="Assets\MeMe Edition\Trollface.png" />
+    <Content Include="Assets\MeMe Edition\wtf_2.png" />
+    <Content Include="Assets\MeMe Edition\Yao-Ming-Meme-PNG.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -133,10 +152,18 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>5.2.3</Version>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>10.0.3</Version>
+    </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
