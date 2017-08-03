@@ -37,8 +37,22 @@ namespace MemoGame.ViewModels
         public DispatcherTimer timer = new DispatcherTimer();
         public bool TimerRunning = false;
         public string TimeFinished;
+
         //public SymbolIcon PlayIcon = new SymbolIcon(Symbol.Pause);
-        
+
+
+        private string startButtonText;
+
+        public string StartButtonText
+        {
+            get { return startButtonText; }
+            set
+            {
+                startButtonText = value;
+                RaisePropertyChanged("StartButtonText");
+            }
+        }
+
 
         private bool highscoreEnabled = true;
 
@@ -128,7 +142,8 @@ namespace MemoGame.ViewModels
                     TimerRunning = false;
                     HighscoreEnabled = true;
                    
-                    PlayIcon = new SymbolIcon(Symbol.Play);
+                    PlayIcon = new SymbolIcon(Symbol.Refresh);
+                    StartButtonText = "Start new game";
 
                     string name = await InputTextDialogAsync("Congratulations! Please enter your name");
 

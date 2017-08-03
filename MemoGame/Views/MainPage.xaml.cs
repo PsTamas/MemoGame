@@ -43,7 +43,7 @@ namespace MemoGame
 
             CardCollection.timer.Interval = TimeSpan.FromMilliseconds(10);
             CardCollection.timer.Tick += Timer_Tick;
-
+            CardCollection.StartButtonText = "Start game";
             
 
 
@@ -132,9 +132,8 @@ namespace MemoGame
                
                 CardGrid.SelectionMode = ListViewSelectionMode.Single;
 
-
-
                 CardCollection.PlayIcon = new SymbolIcon(Symbol.Pause);
+                CardCollection.StartButtonText = "Pause game";
 
                 // Store the total elapsed time so far
                 _totalElapsedTime = _currentElapsedTime;
@@ -147,7 +146,7 @@ namespace MemoGame
 
             else // If the timer is already running
             {
-                
+                CardCollection.StartButtonText = "Continue game";
                 CardCollection.timer.Stop();
                 CardCollection.TimerRunning = false;
                 CardCollection.PlayIcon = new SymbolIcon(Symbol.Play);
