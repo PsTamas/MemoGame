@@ -22,19 +22,14 @@ using Windows.UI.Xaml.Shapes;
 using Windows.Foundation.Collections;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
+using Windows.System.Profile;
 
 namespace MemoGame.ViewModels
 {
     public class CardViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public ObservableCollection<Card> SmallCards = new ObservableCollection<Card>();
-        public ObservableCollection<Card> MediumCards = new ObservableCollection<Card>();
-        //public ObservableCollection<Card> LargeCards = new ObservableCollection<Card>();
       
-
-        public int SelectedPivotItemIndex;
         private List<Card> SelectedCards = new List<Card>();
         Random Rnd = new Random();
         private int CardNumbers = 36;
@@ -135,7 +130,7 @@ namespace MemoGame.ViewModels
                    
                     PlayIcon = new SymbolIcon(Symbol.Play);
 
-                    string name = await InputTextDialogAsync("Please enter your name");
+                    string name = await InputTextDialogAsync("Congratulations! Please enter your name");
 
                     var Highscore = new Highscore(name, TimeFinished, DateTime.Now, IsNewHighscore(TimeFinished));
 
@@ -241,6 +236,7 @@ namespace MemoGame.ViewModels
                 else
                 {
                     isnewhighscore = false;
+                    break;
                 }
             }
 
@@ -500,6 +496,17 @@ namespace MemoGame.ViewModels
             List<string> imagepaths =  await GetImagePaths();
             List<string> results = new List<string>();
 
+            Card.Size cardsize = new Card.Size();
+
+            if (AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Mobile")
+            {
+                cardsize = new Card.Size(50, 50);
+            }
+
+            else
+            {
+                cardsize = new Card.Size(150, 150);
+            }
 
             for (int cardnumbers = 0; cardnumbers < CardNumbers ; cardnumbers++)
             {
@@ -507,7 +514,7 @@ namespace MemoGame.ViewModels
                 var img = new ImageBrush();
                 img.ImageSource = new BitmapImage(new Uri(randomImagePath, UriKind.Absolute));
 
-                var newBigCard = new Card(new Card.Size(150, 150), img);
+                var newBigCard = new Card(cardsize, img);
                 LargeCards.Add(newBigCard);
             }
 

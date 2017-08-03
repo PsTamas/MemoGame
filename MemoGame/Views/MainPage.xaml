@@ -23,7 +23,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="CardTemplate" x:DataType="local:Card">
-            <Grid  Width="150" Height="150">
+            <Grid  >
 
                 <Rectangle x:Name="RectangleBack" Fill="{x:Bind Path=CardImage, Mode=TwoWay}" Width="{x:Bind CardSize.width}" Height="{x:Bind CardSize.height}" Visibility="Collapsed">
                     <Rectangle.Projection>
@@ -56,13 +56,13 @@
             </StackPanel>
         </Pivot.RightHeader>
         <PivotItem x:Name="Game" Header="Game">
-            <GridView x:Name="CardContainer" ItemsSource="{x:Bind CardCollection.LargeCards, Mode=OneWay}" ItemTemplate="{StaticResource CardTemplate}" SelectionChanged="{x:Bind CardCollection.CardClicked}" SelectionMode="None" Margin="0,35,0,55">
+            <GridView x:Name="CardContainer" ItemsSource="{x:Bind CardCollection.LargeCards, Mode=OneWay}" ItemTemplate="{StaticResource CardTemplate}" SelectionChanged="{x:Bind CardCollection.CardClicked}" SelectionMode="None" Margin="0,35,0,0">
 
             </GridView>
             
         </PivotItem>
-        
-        <PivotItem x:Name="HighscoresTable">
+
+        <PivotItem IsEnabled="False" Header="Highscores" x:Name="HighscoresTable">
             <ListView ItemsSource="{x:Bind CardCollection.Highscores, Mode=OneWay}" ItemTemplate="{StaticResource HighscoreTemplate}" HorizontalAlignment="Center" />
         </PivotItem>
         

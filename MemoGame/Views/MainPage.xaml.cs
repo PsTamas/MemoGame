@@ -21,6 +21,7 @@ using MemoGame.Models;
 using Windows.Storage;
 using Newtonsoft.Json;
 using System.Text;
+using Windows.UI.ViewManagement;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -33,6 +34,9 @@ namespace MemoGame
     {
         public MainPage()
         {
+
+            
+
             this.InitializeComponent();
             CardCollection = new CardViewModel();
             Loaded += MainPage_Loaded;
@@ -41,7 +45,8 @@ namespace MemoGame
             CardCollection.timer.Tick += Timer_Tick;
 
             
-            
+
+
         }
 
         public Rectangle frontrectangle = new Rectangle();
