@@ -38,7 +38,7 @@ namespace MemoGame.ViewModels
         public bool TimerRunning = false;
         public string TimeFinished;
 
-        //public SymbolIcon PlayIcon = new SymbolIcon(Symbol.Pause);
+      
 
 
         private string startButtonText;
@@ -145,7 +145,7 @@ namespace MemoGame.ViewModels
                     PlayIcon = new SymbolIcon(Symbol.Refresh);
                     StartButtonText = "Start new game";
 
-                    string name = await InputTextDialogAsync("Congratulations! Please enter your name");
+                    string name = await InputTextDialogAsync("Congratulations!\nPlease enter your name");
 
                     var Highscore = new Highscore(name, TimeFinished, DateTime.Now, IsNewHighscore(TimeFinished));
 
@@ -467,8 +467,8 @@ namespace MemoGame.ViewModels
         {
             StorageFolder appInstalledFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
             StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");
-            StorageFolder MeMe = await assets.GetFolderAsync("MeMe Edition");
-            var files = await MeMe.GetFilesAsync();
+            StorageFolder folderName = await assets.GetFolderAsync("Fruit Edition");
+            var files = await folderName.GetFilesAsync();
             var filepaths = new List<string>();
 
             foreach (StorageFile file in files)
@@ -481,10 +481,7 @@ namespace MemoGame.ViewModels
 
         public string GetRandomImagePath(List<string> ImagePaths, List<string> results)
         {
-            
-            
-            
-            
+ 
             if (ImagePaths.Count < 1)
               return "There are no more new words!! :(";
 

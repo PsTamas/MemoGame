@@ -47,8 +47,8 @@
         <Pivot.RightHeader>
             <StackPanel Orientation="Horizontal">
                 <TextBlock x:Name="TimerTextBlock" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" FontFamily="Verdana" FontWeight="Bold" FontSize="20" Foreground="#FF00A2FF" />
-                <CommandBar ClosedDisplayMode="Compact">
-                    <CommandBar.PrimaryCommands >
+                <CommandBar ClosedDisplayMode="Compact" >
+                    <CommandBar.PrimaryCommands>
                         <AppBarButton x:Name="Play" Icon="{x:Bind CardCollection.PlayIcon, Mode=OneWay}" Label="{x:Bind CardCollection.StartButtonText, Mode=OneWay}" Click="{x:Bind Start_Game}"/>
                         <AppBarButton x:Name="Highscore" Icon="Favorite" Label="Highscores" Click="{x:Bind GoToHighscores}" IsEnabled="{x:Bind CardCollection.HighscoreEnabled, Mode=OneWay}"/>
                     </CommandBar.PrimaryCommands>
@@ -62,13 +62,9 @@
             
         </PivotItem>
 
-        <PivotItem IsEnabled="False" Header="Highscores" x:Name="HighscoresTable">
+        <PivotItem Header="Highscores" x:Name="HighscoresTable">
             <ListView ItemsSource="{x:Bind CardCollection.Highscores, Mode=OneWay}" ItemTemplate="{StaticResource HighscoreTemplate}" HorizontalAlignment="Center" />
         </PivotItem>
         
-
-
-
-
     </Pivot>
 </Page>

@@ -35,8 +35,6 @@ namespace MemoGame
         public MainPage()
         {
 
-            
-
             this.InitializeComponent();
             CardCollection = new CardViewModel();
             Loaded += MainPage_Loaded;
@@ -45,8 +43,6 @@ namespace MemoGame
             CardCollection.timer.Tick += Timer_Tick;
             CardCollection.StartButtonText = "Start game";
             
-
-
         }
 
         public Rectangle frontrectangle = new Rectangle();
